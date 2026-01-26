@@ -1,18 +1,13 @@
-# Sendify Code Challenge: DB Schenker Shipment Tracker MCP Server
+# Sendify Code Challenge: DB Schenker Shipment Tracker 
 
-## About This Challenge
-
-Complete this challenge to fast-track your application for internship or junior developer positions at Sendify. **No CV or cover letter required** - just show us what you can build.
 
 ## The Task
 
-Build an MCP (Model Context Protocol) server with a tool that tracks DB Schenker shipments.
+Build a tool that provides tracking information for a DB Schenker shipment.
 
 ### Requirements
 
-Your MCP server must expose a tool that:
-
-1. **Accepts** a DB Schenker tracking reference number as input
+1. **Input** a DB Schenker tracking reference number 
 2. **Returns** structured shipment information including:
    - Sender information (name, address)
    - Receiver information (name, address)
@@ -50,9 +45,8 @@ Use these reference numbers for testing:
 - You may use **any programming language**
 - Your solution must include clear instructions on:
   - How to set up the environment
-  - How to build/install dependencies
-  - How to run the MCP server
-  - How to test the tool
+  - How to build/install dependencies 
+  - How to run the tool
 
 ## What We're Looking For
 
@@ -60,12 +54,6 @@ Use these reference numbers for testing:
 - **Code quality** - Clean, readable, and well-structured code
 - **Documentation** - Clear setup and usage instructions
 - **Error handling** - Graceful handling of invalid references, network issues, etc.
-
-## MCP Resources
-
-If you're new to MCP (Model Context Protocol):
-- [MCP Documentation](https://modelcontextprotocol.io/)
-- [MCP SDKs](https://github.com/modelcontextprotocol)
 
 ## Submission
 

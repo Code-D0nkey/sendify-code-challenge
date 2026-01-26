@@ -19,8 +19,9 @@ Build a tool that provides tracking information for a DB Schenker shipment.
 
 Use the public DB Schenker tracking website:
 
-[https://www.dbschenker.com/app/tracking-public/](https://dbschenker.com/app/tracking-public/?language_region=en-US_US)
-
+```
+https://www.dbschenker.com/app/tracking-public/?language_region=en-US_US
+```
 
 ### Example Reference Numbers
 

@@ -9,8 +9,8 @@ Build a tool that provides tracking information for a DB Schenker shipment.
 
 1. **Input** a DB Schenker tracking reference number 
 2. **Returns** structured shipment information including:
-   - Sender information (name, address)
-   - Receiver information (name, address)
+   - Sender information (postal code, city, country)
+   - Receiver information (postal code, city, country)
    - Package details (weight, dimensions, piece count, etc.)
    - Complete tracking history for the shipment
    - **Bonus:** Individual tracking events per package

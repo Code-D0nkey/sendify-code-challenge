@@ -1,34 +1,50 @@
-# Sendify Code Challenge: DB Schenker Shipment Tracker 
-
+# Sendify Code Challenge: DB Schenker Shipment Tracker
 
 ## The Task
 
 Build a tool that provides tracking information for a DB Schenker shipment.
 
-### Requirements
+### Instructions
 
-1. **Input** a DB Schenker tracking reference number 
-2. **Returns** structured shipment information including:
-   - Sender information (postal code, city, country)
-   - Receiver information (postal code, city, country)
-   - Package details (weight, dimensions, piece count, etc.)
-   - Complete tracking history for the shipment
-   - **Bonus:** Individual tracking events per package
+1. **Install dependencies:** Run `npm install` in both directories /tracker and /web
+2. **Run the servers** to run the servers to the following:
+    - Run `npm run server` from the /tracker directory
+    - In a seperate terminal, run `npm run dev` from the /web directory
+3. **Query away!**
 
-### Data Source
+### Troubleshooting
 
-Use the public DB Schenker tracking website:
+In case the tool fails for whatever reason, it might be because the DBSchenker website is rate-limiting the connection.
+One potential fix is to re-run the server with the headless parameter as false.
+
+So in server.js, change this:
 
 ```
-https://www.dbschenker.com/app/tracking-public/?language_region=en-US_US
+const promise = getTracking(ref, { headless: true }).then((data) => {
+        cache.set(ref, { data, expiresAt: Date.now() + TTL_MS });
+        return data;
+    });
+
 ```
+
+to this:
+
+```
+const promise = getTracking(ref, { headless: false }).then((data) => {
+        cache.set(ref, { data, expiresAt: Date.now() + TTL_MS });
+        return data;
+    });
+
+```
+
+If you're still being rate limited, grab a coffee and chill for a sec ;D
 
 ### Example Reference Numbers
 
 Use these reference numbers for testing:
 
 | Reference Number |
-|------------------|
+| ---------------- |
 | 1806203236       |
 | 1806290829       |
 | 1806273700       |
@@ -41,44 +57,6 @@ Use these reference numbers for testing:
 | 1806258974       |
 | 1806256390       |
 
-## Technical Requirements
+```
 
-- You may use **any programming language**
-- Your solution must include clear instructions on:
-  - How to set up the environment
-  - How to build/install dependencies 
-  - How to run the tool
-
-## What We're Looking For
-
-- **Problem-solving ability** - How do you approach extracting data from a public web interface?
-- **Code quality** - Clean, readable, and well-structured code
-- **Documentation** - Clear setup and usage instructions
-- **Error handling** - Graceful handling of invalid references, network issues, etc.
-
-## Submission
-
-1. Create a public GitHub repository with your solution
-2. Ensure all setup instructions are included in the README
-3. Send us the link to your repository (holger@sendify.se)
-
-## What Happens Next
-
-If your submission meets our criteria, we'll invite you for a technical interview. Be prepared to:
-
-- **Walk us through your code** - Explain your design decisions and architecture
-- **Discuss trade-offs** - Why did you choose your approach over alternatives?
-- **Answer technical questions** - We may ask you to explain specific parts in detail
-- **Talk about improvements** - What would you do differently with more time?
-
-This is your code - own it and be ready to reason about every part of it.
-
-## Questions?
-
-If you need additional test reference numbers or have questions about the challenge, reach out to us:
-- Email: holger@sendify.se
-- Discord: https://discord.gg/ZCv7dc7UXG
-
----
-
-Good luck! We're excited to see what you build.
+```
